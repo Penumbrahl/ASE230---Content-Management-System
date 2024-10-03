@@ -124,6 +124,7 @@ session_start();
                             <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
                                 <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                                <p>New to our website?<a href="signup.php">Click here to SignUp<a><p>
                             </div>
                         </div>
                     </div>
