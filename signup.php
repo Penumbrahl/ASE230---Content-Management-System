@@ -31,7 +31,7 @@ if (count($_POST) > 0) {
             fputs($fp, $_POST['email'] . ';' . password_hash($_POST['password'], PASSWORD_DEFAULT) . PHP_EOL);
             // Close the file
             fclose($fp);
-            header('Location: signin.php');
+            header('Location: index.php');
             die();
         }
     }
