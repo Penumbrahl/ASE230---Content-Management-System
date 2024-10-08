@@ -25,7 +25,7 @@ if (isset($_SESSION['email'])) {
                  //echo 'Welcome to the website!';
                  fclose($fp);
                  $_SESSION['email'] = $line[0];
-                 header('Location: index.php');
+                 header('Location: MusicPost/index.php');
                  die();
              }
          }
