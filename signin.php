@@ -67,6 +67,9 @@ if (isset($_SESSION['email'])) {
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Sign In</button>
                         </form>
+                        <br />
+                        <p>If you are new to our website, click here to <a href="signup.php" >Sign Up</a><p>
+
                     </div>
                 </div>
             </div>
