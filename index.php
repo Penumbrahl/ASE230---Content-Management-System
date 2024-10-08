@@ -122,20 +122,11 @@ session_start();
                         <div class="card-header">Sign In</div>
                         <div class="card-body">
                             <div class="input-group">
-                            <form method="POST">
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" name="email" required>
+                                    <p>Click here to <a style="text-decoration: none" href="signin.php" ><button class="btn btn-primary" id="button-signin" type="button">Sign In</button></a>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="password" required>
-                                </div>
-                                    <button class="btn btn-primary" id="button-search" type="button">Sign In</button>
-                                </div>
-                            </form>
                             <br />
-                            <p>New to our website? <a href="signup.php">Click here to SignUp<a><p>
+                            <p>New to our website?<p>
+                            <p>Click here to <a style="text-decoration: none" href="signup.php" ><button class="btn btn-primary" id="button-signin" type="button">Sign Up</button></a><p>
                         </div>
                     </div>
                     <!-- Categories widget-->
