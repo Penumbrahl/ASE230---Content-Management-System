@@ -34,7 +34,7 @@ session_start();
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">
                 <div class="text-center my-5">
-                    <h1 class="fw-bolder">Welcome to Blog Home!</h1>
+                    <h1 class="fw-bolder">Welcome to GrooveNest!</h1>
                     <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
                 </div>
             </div>
@@ -119,12 +119,22 @@ session_start();
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Search</div>
+                        <div class="card-header">Sign In</div>
                         <div class="card-body">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                            </div>
+                            <form method="POST">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password" required>
+                                </div>
+                                    <button class="btn btn-primary" id="button-search" type="button">Sign In</button>
+                                </div>
+                            </form>
+                            <br />
                             <p>New to our website? <a href="signup.php">Click here to SignUp<a><p>
                         </div>
                     </div>

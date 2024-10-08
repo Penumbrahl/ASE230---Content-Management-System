@@ -1,20 +1,17 @@
 <?php
 // SIGNUP
-
 session_start();
 $error = '';
 // LOGIC/CONTROLLER
 if (count($_POST) > 0) {
+    if (!isset($_POST['email'][0])) $error = 'You must enter your email';
+    if (!isset($_POST['password'][0])) $error = 'You must enter your password';
+    if (!isset($_POST['password_confirm'][0])) $error = 'You must confirm your password';
 
-    if (!isset($_POST['email'][0])) $error = 'you must enter your email';
-    if (!isset($_POST['password'][0])) $error = 'you must enter your password';
-    if (!isset($_POST['password_confirm'][0])) $error = 'you must enter your password';
-
-    //correctness
-    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $error = 'you must enter a valid email';
-    if (strlen($_POST['password']) < 8 || strlen($_POST['password']) > 16) $error = 'you must enter a password between 8 and 16 characters';
-
-    if ($_POST['password'] != $_POST['password_confirm']) $error = 'passwords must match';
+    // Correctness
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $error = 'You must enter a valid email';
+    if (strlen($_POST['password']) < 8 || strlen($_POST['password']) > 16) $error = 'Password must be between 8 and 16 characters';
+    if ($_POST['password'] != $_POST['password_confirm']) $error = 'Passwords must match';
 
     if (strlen($error) == 0) {
         $fp = fopen('users.csv.php', 'r');
@@ -28,38 +25,64 @@ if (count($_POST) > 0) {
         }
         fclose($fp);
         if (strlen($error) == 0) {
-            //open csv file in append mode
+            // Open CSV file in append mode
             $fp = fopen('users.csv.php', 'a+');
-            //write new credentials
+            // Write new credentials
             fputs($fp, $_POST['email'] . ';' . password_hash($_POST['password'], PASSWORD_DEFAULT) . PHP_EOL);
-            //close the file
+            // Close the file
             fclose($fp);
-            header('Location: signin.php');
+            header('Location: index.php');
             die();
         }
     }
-};
+}
 
-//VIEW
+// VIEW
 ?>
 
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
-    <?php if (strlen($error) > 0) echo $error; ?>
-    <form method="POST">
-        <label>Email</label><br />
-        <input type="email" name="email" required />
-        <br /><br />
-        <label>Password</label><br />
-        <input type="password" name="password" required /> <br /><br />
-        <label>Confirm Password</label><br />
-        <input type="password" name="password_confirm" required /> <br /><br />
-        <button type="submit">Sign Up</button>
-    </form>
-</body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Sign Up</h3>
+                        <?php if (strlen($error) > 0): ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= $error; ?>
+                            </div>
+                        <?php endif; ?>
+                        <form method="POST">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password_confirm" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" name="password_confirm" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
