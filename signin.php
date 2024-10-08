@@ -1,7 +1,7 @@
 <?php
  session_start();
  require_once('auth.php');
- if ( return isset($_SESSION['email'])) {
+ if (return isset($_SESSION['email'])) {
      header('location: index.php');
      die();
  };
