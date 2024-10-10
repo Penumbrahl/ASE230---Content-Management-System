@@ -8,7 +8,8 @@
                 "title": "Gaming",
                 "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\r\n         Donec venenatis sapien elit, vel convallis mauris ullamcorper ac.\r\n          Curabitur vestibulum felis et urna mattis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, \r\n          per inceptos himenaeos. Proin pulvinar neque ut magna pellentesque luctus. Aliquam vitae consectetur nulla. Cras pulvinar lobortis \r\n          tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut pulvinar nunc nec lacus tincidunt, quis porta libero auctor.\r\n          Sed ultrices lacinia neque ac luctus. Pellentesque ut consequat quam. Nunc dictum, augue a facilisis lobortis, leo eros vehicula arcu, eget porttitor purus sapien interdum nibh. Praesent vitae lorem a ligula viverra posuere.",
                 "author": "Landen Tomlin",
-                "date": "9\/16\/2024"
+                "date": "9\/16\/2024",
+                "genre": "Country"
             }
         ]
     },
@@ -20,7 +21,8 @@
                 "title": "Gaming",
                 "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\r\n         Donec venenatis sapien elit, vel convallis mauris ullamcorper ac.\r\n          Curabitur vestibulum felis et urna mattis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, \r\n          per inceptos himenaeos. Proin pulvinar neque ut magna pellentesque luctus. Aliquam vitae consectetur nulla. Cras pulvinar lobortis \r\n          tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut pulvinar nunc nec lacus tincidunt, quis porta libero auctor.\r\n          Sed ultrices lacinia neque ac luctus. Pellentesque ut consequat quam. Nunc dictum, augue a facilisis lobortis, leo eros vehicula arcu, eget porttitor purus sapien interdum nibh. Praesent vitae lorem a ligula viverra posuere.",
                 "author": "Landen Tomlin",
-                "date": "9\/16\/2024"                      
+                "date": "9\/16\/2024",
+                "genre": "Jazz"                      
             }
         ]
     }

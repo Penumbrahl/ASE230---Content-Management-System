@@ -66,16 +66,18 @@ if(!isset($_SESSION['email'])){
                                 <div class="mb-3">
                                     <label for="title" class="form-label">Post Title:</label>
                                     <input type="text" class="form-control" name="title" required><br />
+                                    <label for="title" class="form-label">Summary:</label>
+                                    <input type="text" class="form-control" name="summary" required><br />
+                                    <label for="title" class="form-label">Date:</label>
+                                    <input type="text" class="form-control" name="date" required><br />
                                     <label for="genre" class="form-label">Genre:</label>
                                     <input type="text" class="form-control" name="genre" required><br />
                                     <label for="Image Upload" class="form-label">Image (URL):</label>
                                     <input type="text" class="form-control" name="image" required><br />
                                     <label for="content" class="form-label">Content:</label>
                                     <input type="text" class="form-control" name="content" required><br />
-                                    <label for="title" class="form-label">Date:</label>
-                                    <input type="text" class="form-control" name="date" required><br />
-                                    <label for="title" class="form-label">Post Title:</label>
-                                    <input type="text" class="form-control" name="title" required><br />
+                                    
+
 
 
 
