@@ -38,7 +38,7 @@ if(!isset($_SESSION['email'])){
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">
                 <div class="text-center my-5">
-                    <h1 class="fw-bolder">Welcome to GrooveNest!</h1>
+                    <h1 class="fw-bolder">Our Blogs</h1>
                     <p class="lead mb-0">A place to discuss all the news about music!</p>
                 </div>
             </div>
