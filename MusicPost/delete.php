@@ -2,13 +2,26 @@
 session_start();
 if(!isset($_SESSION['email'])){
     echo '<h2>You are not signed in. Click here to <a href="../signin.php" >Sign In</a></h2>';
-     die();
+    die();
 }
 
-$i=$_GET['index'];
+$i = $_GET['index'];
 $string = file_get_contents('../posts.json');
 $php_array = json_decode($string, true);
 $blogs = $php_array;
+
+
+if (isset($_POST['delete'])) {
+
+    array_splice($blogs, $i, 1); // removes just 1 post (the selected post)
+
+
+    file_put_contents('../posts.json', json_encode($blogs, JSON_PRETTY_PRINT)); // Update JSON File
+
+
+    header("Location: index.php"); // return user back to index after completion
+    exit(); // ensures the page doesn't reload after someone hits the delete button
+}
 ?>
 
 <!doctype html>
@@ -44,16 +57,19 @@ $blogs = $php_array;
                 <div class="col-lg-8 mx-auto">
                     <?php if (empty($blogs)){?>
                         <div class="alert alert-warning">No posts available to delete.</div>
-                    <?php }else{ ?>
+                    <?php } else { ?>
                         <div class="card mb-4">
-                        <div class="card-body">
-                            <h1 class="card-title"><?=$blogs[$i]['title']?></h1>
-                            <h5 class="card-subtitle text-muted"><?='by: '.$blogs[$i]['author']?></h5>
-                            <p class="small text-muted"><?='Posted on: '.$blogs[$i]['date']?></p>
-                            <p class="card-text"><?=$blogs[$i]['content']?></p>
-                            <button type="submit" name="delete" class="btn btn-danger">Delete</button><br />
-                            <?php } ?>
-                        </ul>
+                            <div class="card-body">
+                                <h1 class="card-title"><?=$blogs[$i]['title']?></h1>
+                                <h5 class="card-subtitle text-muted"><?='by: '.$blogs[$i]['author']?></h5>
+                                <p class="small text-muted"><?='Posted on: '.$blogs[$i]['date']?></p>
+                                <p class="card-text"><?=$blogs[$i]['content']?></p>
+                                <form method="post">
+                                    <button type="submit" name="delete" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php } ?>
                     <br />
                     <button type="button" class="btn btn-secondary">
                         <a style="text-decoration: none; color: white;" href="index.php">Return To Home</a>

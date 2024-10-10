@@ -7,16 +7,6 @@
         "date": "2\/2\/23",
         "title": "Heehee",
         "image": "https:\/\/media.sproutsocial.com\/uploads\/meme-example.jpg",
-        "user_id": 1
-    },
-    {
-        "author": "Blyad",
-        "genre": "Shoegaze",
-        "content": "Haha this no work",
-        "summary": "No",
-        "date": "2\/2\/23",
-        "title": "Heehee",
-        "image": "https:\/\/media.sproutsocial.com\/uploads\/meme-example.jpg",
         "user_id": 2
     },
     {
@@ -48,15 +38,5 @@
         "title": "New",
         "image": "https:\/\/images.pexels.com\/photos\/262508\/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         "user_id": 3
-    },
-    {
-        "author": "Landen",
-        "genre": "Bum ass music",
-        "content": "I'm over here ballin, you can't even fathom how hard I'm balling rn that's crazy",
-        "summary": "Ants",
-        "date": "10\/10\/2024",
-        "title": "This is some cool music bros",
-        "image": "https:\/\/images.pexels.com\/photos\/262508\/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "user_id": 1
     }
 ]
