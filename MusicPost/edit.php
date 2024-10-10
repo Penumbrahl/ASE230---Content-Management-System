@@ -6,6 +6,9 @@ if(!isset($_SESSION['email'])){
 }
 
 $i=$_GET['index'];
+$string = file_get_contents('../posts.json');
+$php_array = json_decode($string, true);
+$blogs = $php_array;
 ?>
 
 <!doctype html>
