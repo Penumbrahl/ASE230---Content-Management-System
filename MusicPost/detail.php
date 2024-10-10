@@ -5,7 +5,6 @@ if(!isset($_SESSION['email'])){
      die();
 }
 
-// Create the main post page, this will include a comment section, but it should only be accessible to users.
     $i=$_GET['index'];    
     $string = file_get_contents('../posts.json');
     $php_array = json_decode($string, true);
