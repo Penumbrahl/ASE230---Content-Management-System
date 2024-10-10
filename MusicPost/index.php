@@ -4,6 +4,11 @@ if(!isset($_SESSION['email'])){
     echo '<h2>You are not signed in. Click here to <a href="../signin.php" >Sign In</a></h2>';
      die();
 }
+
+// Create the main post page, this will include a comment section, but it should only be accessible to users.
+    $string = file_get_contents('../posts.json');
+    $php_array = json_decode($string, true);
+    $blogs = $php_array;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,9 +31,9 @@ if(!isset($_SESSION['email'])){
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <!--<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="create.php">Create</a></li>
+                        <li class="nav-item"><a class="nav-link" href="edit.php">Edit</a></li>
+                        <li class="nav-item"><a class="nav-link" href="delete.php">Delete</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="../signout.php">Sign Out</a></li>
                     </ul>
                 </div>
@@ -50,12 +55,12 @@ if(!isset($_SESSION['email'])){
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img class="card-img-top" src="<?= $blogs[0]['image_url']?>" alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted">January 1, 2023</div>
-                            <h2 class="card-title">Featured Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
+                            <div class="small text-muted"><?= $blogs[0]['date']?></div>
+                            <h2 class="card-title"><?= $blogs[0]['title']?></h2>
+                            <p class="card-text"><?= $blogs[0]['summary']?></p>
+                            <a class="btn btn-primary" href="detail.php?index=<?= 0?>">Read more →</a>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
