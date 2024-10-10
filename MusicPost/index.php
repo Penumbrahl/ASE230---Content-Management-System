@@ -60,7 +60,7 @@ if(!isset($_SESSION['email'])){
                             <div class="small text-muted"><?= $blogs[0]['date']?></div>
                             <h2 class="card-title"><?= $blogs[0]['title']?></h2>
                             <p class="card-text"><?= $blogs[0]['summary']?></p>
-                            <a class="btn btn-primary" href="detail.php">Read more →</a>
+                            <a class="btn btn-primary" href="detail.php?index=<?= 0?>">Read more →</a>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
