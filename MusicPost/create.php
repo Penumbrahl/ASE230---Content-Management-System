@@ -44,6 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'] ?? '';
     $image = $_POST['image'] ?? '';
 
+     // Automatically set the current date
+    $date = date('d-m-Y');
+
     // Create an associative array with the new data
     $newData = array(
         "author" => $author,
@@ -104,6 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="text-center my-5">
                     <h1 class="fw-bolder">Welcome to GrooveNest!</h1>
                     <p class="lead mb-0">Create your post here!</p>
+                    <p>Today's Date: <?php echo date('d-m-Y'); ?></p>
                 </div>
             </div>
         </header>
@@ -115,7 +119,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <!-- Featured blog post-->
                     <div class="card mb-4">
                         <div class="card-body">
-                            <div class="small text-muted">January 1, 2023</div>
                             <h2 class="card-title">Create Your Post</h2>
                         </div>
                         <div class="card-body">
