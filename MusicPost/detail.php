@@ -6,8 +6,7 @@ if(!isset($_SESSION['email'])){
 }
 
 // Create the main post page, this will include a comment section, but it should only be accessible to users.
-    //$i=$_GET['post_id'];    
-    $i = 0;
+    $i=$_GET['index'];    
     $string = file_get_contents('../posts.json');
     $php_array = json_decode($string, true);
     $blogs = $php_array;
@@ -31,6 +30,9 @@ if(!isset($_SESSION['email'])){
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="create.php">Create</a></li>
+                        <li class="nav-item"><a class="nav-link" href="edit.php">Edit</a></li>
+                        <li class="nav-item"><a class="nav-link" href="delete.php">Delete</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="../signout.php">Sign Out</a></li>
                     </ul>
                 </div>

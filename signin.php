@@ -16,7 +16,8 @@ if (isset($_SESSION['email'])) {
      if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $error = 'You must enter a valid email';
      if (strlen($_POST['password']) < 8 || strlen($_POST['password']) > 16) $error = 'You must enter a password between 8 and 16 characters';
  
-     if (strlen($error) == 0) {
+     if (strlen($error) == 0) { 
+        $user_id = 0;
          $fp = fopen('users.csv.php', 'r');
          while (!feof($fp)) {
              $line = fgets($fp);
@@ -25,9 +26,11 @@ if (isset($_SESSION['email'])) {
                  //echo 'Welcome to the website!';
                  fclose($fp);
                  $_SESSION['email'] = $line[0];
+                 $_SESSION['user_id']=  $user_id;
                  header('Location: MusicPost/index.php');
                  die();
              }
+            $user_id++;
          }
          fclose($fp);
          $error = 'Your credentials are wrong';
