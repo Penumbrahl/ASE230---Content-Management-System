@@ -56,7 +56,7 @@ if(!isset($_SESSION['email'])){
                     <!-- Featured blog post-->
                     <?php for($i=0; $i<count($blogs);$i++){?>
                             <div class="card mb-4">
-                                <img class="card-img-top" src="<?=$blogs[$i]['image']?>" alt="..." />
+                                <img class="card-img-top" src="<?=$blogs[$i]['image']?>" alt="..." width="200" height="500"/>
                                 <div class="card-body">
                                     <div class="small text-muted"><?=$blogs[$i]['date']?></div>
                                     <h2 class="card-title h4"><?=$blogs[$i]['title']?></h2>
