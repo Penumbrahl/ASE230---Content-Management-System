@@ -37,6 +37,7 @@ $blogs = $php_array;
             </div>
         </nav>
 
+
         <!-- Edit post form-->
         <div class="container mt-5">
             <h1>Edit Post</h1>
@@ -46,23 +47,31 @@ $blogs = $php_array;
                     <input type="hidden" name="post_id" value="<?= $post_id ?>">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" value="<?= $blogs['title'] ?>" required>
+                        <input type="text" class="form-control" id="title" name="title" value="<?= $blogs[$i]['title'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Summary</label>
-                        <input type="text" class="form-control" id="title" name="title" value="<?= $blogs['summary'] ?>" required>
+                        <input type="text" class="form-control" id="title" name="title" value="<?= $blogs[$i]['summary'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="author" class="form-label">Author</label>
-                        <input type="text" class="form-control" id="author" name="author" value="<?= $blogs['author'] ?>" required>
+                        <input type="text" class="form-control" id="author" name="author" value="<?= $blogs[$i]['author'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="date" name="date" value="<?= $blogs['date'] ?>" required>
+                        <input type="date" class="form-control" id="date" name="date" value="<?= $blogs[$i]['date'] ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" value="<?= $blogs[$i]['genre'] ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Image</label>
+                        <input type="text" class="form-control" id="title" name="title" value="<?= $blogs[$i]['image'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
-                        <textarea class="form-control" id="content" name="content" rows="5" required><?= $blogs['content'] ?></textarea>
+                        <textarea class="form-control" id="content" name="content" rows="5" required><?= $blogs[$i]['content'] ?></textarea>
                     </div>
                     <button type="submit" name="update" class="btn btn-primary">Update Post</button>
                     <button type="button" class="btn btn-secondary">
