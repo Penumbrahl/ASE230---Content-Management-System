@@ -2,13 +2,31 @@
 session_start();
 if(!isset($_SESSION['email'])){
     echo '<h2>You are not signed in. Click here to <a href="../signin.php" >Sign In</a></h2>';
-     die();
+    die();
 }
 
-$i=$_GET['index'];
+$i = $_GET['index'];
 $string = file_get_contents('../posts.json');
 $php_array = json_decode($string, true);
 $blogs = $php_array;
+
+if (isset($_POST['update'])) {
+    // Update the blog post data
+    $blogs[$i]['title'] = $_POST['title'];
+    $blogs[$i]['summary'] = $_POST['summary'];
+    $blogs[$i]['author'] = $_POST['author'];
+    $blogs[$i]['date'] = $_POST['date'];
+    $blogs[$i]['genre'] = $_POST['genre'];
+    $blogs[$i]['image'] = $_POST['image'];
+    $blogs[$i]['content'] = $_POST['content'];
+
+    // Save the updated blogs array back to the JSON file
+    file_put_contents('../posts.json', json_encode($blogs, JSON_PRETTY_PRINT));
+
+    // Redirect or show a success message
+    header("Location: index.php?message=Post Updated");
+    exit();
+}
 ?>
 
 <!doctype html>
@@ -37,21 +55,19 @@ $blogs = $php_array;
             </div>
         </nav>
 
-
-        <!-- Edit post form-->
+        <!-- Edit post form -->
         <div class="container mt-5">
             <h1>Edit Post</h1>
 
             <?php if ($blogs) { ?>
                 <form method="POST" class="mt-4">
-                    <input type="hidden" name="post_id" value="<?= $post_id ?>">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" class="form-control" id="title" name="title" value="<?= $blogs[$i]['title'] ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="title" class="form-label">Summary</label>
-                        <input type="text" class="form-control" id="title" name="title" value="<?= $blogs[$i]['summary'] ?>" required>
+                        <label for="summary" class="form-label">Summary</label>
+                        <input type="text" class="form-control" id="summary" name="summary" value="<?= $blogs[$i]['summary'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="author" class="form-label">Author</label>
@@ -62,12 +78,12 @@ $blogs = $php_array;
                         <input type="date" class="form-control" id="date" name="date" value="<?= $blogs[$i]['date'] ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" value="<?= $blogs[$i]['genre'] ?>" required>
+                        <label for="genre" class="form-label">Genre</label>
+                        <input type="text" class="form-control" id="genre" name="genre" value="<?= $blogs[$i]['genre'] ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="title" class="form-label">Image</label>
-                        <input type="text" class="form-control" id="title" name="title" value="<?= $blogs[$i]['image'] ?>" required>
+                        <label for="image" class="form-label">Image</label>
+                        <input type="text" class="form-control" id="image" name="image" value="<?= $blogs[$i]['image'] ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
@@ -78,12 +94,15 @@ $blogs = $php_array;
                         <a style="text-decoration: none; color: white;" href="index.php">Return To Home</a>
                     </button>
                 </form>
-
             <?php } else { ?>
                 <div class="alert alert-danger">No post found to edit.</div>
             <?php } ?>
         </div>
-
+        <br />
+        <br />
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; GrooveNest 2024</p></div>
+        </footer>
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>

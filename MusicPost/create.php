@@ -69,9 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Save the updated JSON data back to the file
     file_put_contents($file, $jsonData);
 
-    echo "Post Created!";
-} else {
-    echo "No data submitted.";
+    header("Location: index.php"); // return user back to index after completion
+    exit(); // ensures the page doesn't reload after someone hits the delete button
 }
 ?>
 <!DOCTYPE html>
@@ -152,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2024</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; GrooveNest 2024</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
