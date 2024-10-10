@@ -110,7 +110,7 @@ if(!isset($_SESSION['email'])){
                             </div>
                         </div>
                     </div>-->
-                    <!-- Pagination-->
+                    <!-- Pagination--
                     <nav aria-label="Pagination" class="d-flex justify-content-center">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
@@ -122,7 +122,7 @@ if(!isset($_SESSION['email'])){
                             <li class="page-item"><a class="page-link" href="#!">15</a></li>
                             <li class="page-item"><a class="page-link" href="#!">Older</a></li>
                         </ul>
-                    </nav>
+                    </nav>-->
                 </div>
                 <!-- Side widgets
                 <div class="col-lg-4">-->
