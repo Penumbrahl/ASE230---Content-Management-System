@@ -26,10 +26,10 @@ if(!isset($_SESSION['email'])){
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>-->
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../signout.php">Sign Out</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,13 +39,13 @@ if(!isset($_SESSION['email'])){
             <div class="container">
                 <div class="text-center my-5">
                     <h1 class="fw-bolder">Welcome to GrooveNest!</h1>
-                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+                    <p class="lead mb-0">A place to discuss all the news about music!</p>
                 </div>
             </div>
         </header>
         <!-- Page content-->
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <!-- Blog entries-->
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
@@ -59,7 +59,7 @@ if(!isset($_SESSION['email'])){
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <div class="card mb-4">
@@ -106,7 +106,7 @@ if(!isset($_SESSION['email'])){
                         </div>
                     </div>
                     <!-- Pagination-->
-                    <nav aria-label="Pagination">
+                    <nav aria-label="Pagination" class="d-flex justify-content-center">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
                             <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
