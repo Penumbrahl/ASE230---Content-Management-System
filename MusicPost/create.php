@@ -66,9 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Save the updated JSON data back to the file
     file_put_contents($file, $jsonData);
 
-    echo "Post Created!";
-} else {
-    echo "No data submitted.";
 }
 ?>
 <!DOCTYPE html>
@@ -119,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <h2 class="card-title">Create Your Post</h2>
                         </div>
                         <div class="card-body">
-                            <form method="POST">
+                            <form method="POST" action="index.php">
                                 <div class="mb-3">
                                     <label for="title" class="form-label">Post Title:</label>
                                     <input type="text" class="form-control" name="title" required><br />

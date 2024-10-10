@@ -58,5 +58,25 @@
         "title": "This is some cool music bros",
         "image": "https:\/\/images.pexels.com\/photos\/262508\/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         "user_id": 1
+    },
+    {
+        "author": "Goofy Guy",
+        "genre": "Rack",
+        "content": "New test",
+        "summary": "Goober",
+        "date": "Jan 2023",
+        "title": "Silly",
+        "image": "https:\/\/static.wikia.nocookie.net\/dqw4w9wgxcq\/images\/0\/08\/Site-background-dark\/revision\/latest\/scale-to-width-down\/1000?cb=20220428173233",
+        "user_id": 4
+    },
+    {
+        "author": "Goofy Guy",
+        "genre": "Rack",
+        "content": "New test",
+        "summary": "Goober",
+        "date": "Jan 2023",
+        "title": "Silly",
+        "image": "https:\/\/static.wikia.nocookie.net\/dqw4w9wgxcq\/images\/0\/08\/Site-background-dark\/revision\/latest\/scale-to-width-down\/1000?cb=20220428173233",
+        "user_id": 4
     }
 ]
