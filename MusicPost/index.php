@@ -54,19 +54,21 @@ if(!isset($_SESSION['email'])){
                 <!-- Blog entries-->
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="<?= $blogs[0]['image_url']?>" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted"><?= $blogs[0]['date']?></div>
-                            <h2 class="card-title"><?= $blogs[0]['title']?></h2>
-                            <p class="card-text"><?= $blogs[0]['summary']?></p>
-                            <a class="btn btn-primary" href="detail.php?index=<?= 0?>">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- Nested row for non-featured blog posts-->
+                    <?php for($i=0; $i<count($blogs);$i++){?>
+                            <div class="card mb-4">
+                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                                <div class="card-body">
+                                    <div class="small text-muted"><?=$blogs[$i]['date']?></div>
+                                    <h2 class="card-title h4"><?=$blogs[$i]['title']?></h2>
+                                    <p class="card-text"><?=$blogs[$i]['summary']?></p>
+                                    <a class="btn btn-primary" href="detail.php?index=<?=$i?>">Read more →</a>
+                                </div>
+                            </div>
+                            <?php } ?>
+                    <!-- Nested row for non-featured blog posts
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
-                            <!-- Blog post-->
+                            Blog post
                             <div class="card mb-4">
                                 <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                                 <div class="card-body">
@@ -76,7 +78,7 @@ if(!isset($_SESSION['email'])){
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
-                            <!-- Blog post-->
+                            Blog post
                             <div class="card mb-4">
                                 <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                                 <div class="card-body">
@@ -88,7 +90,7 @@ if(!isset($_SESSION['email'])){
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <!-- Blog post-->
+                            Blog post
                             <div class="card mb-4">
                                 <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                                 <div class="card-body">
@@ -98,7 +100,7 @@ if(!isset($_SESSION['email'])){
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
-                            <!-- Blog post-->
+                            Blog post
                             <div class="card mb-4">
                                 <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                                 <div class="card-body">
@@ -109,7 +111,7 @@ if(!isset($_SESSION['email'])){
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- Pagination-->
                     <nav aria-label="Pagination" class="d-flex justify-content-center">
                         <hr class="my-0" />
