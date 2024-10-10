@@ -4,6 +4,11 @@ if(!isset($_SESSION['email'])){
     echo '<h2>You are not signed in. Click here to <a href="../signin.php" >Sign In</a></h2>';
      die();
 }
+
+$i=$_GET['index'];
+$string = file_get_contents('../posts.json');
+$php_array = json_decode($string, true);
+$blogs = $php_array;
 ?>
 
 <!doctype html>
@@ -26,9 +31,7 @@ if(!isset($_SESSION['email'])){
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../signout.php">Sign Out</a></li>
                     </ul>
                 </div>
             </div>
@@ -36,7 +39,7 @@ if(!isset($_SESSION['email'])){
 
         <!-- Delete post content-->
         <div class="container mt-5">
-            <h1>Delete a Post</h1>
+            <h1>Delete this Post?</h1>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <?php if (empty($blogs)){?>
@@ -49,7 +52,7 @@ if(!isset($_SESSION['email'])){
                                         <strong><?= $blog['title'] ?></strong> by <?= $blog['author'] ?> (<?= $blog['date'] ?>)
                                     </span>
                                     <form method="POST" style="display:inline;">
-                                        <input type="hidden" name="post_id" value="<?= $index ?>">
+                                        <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
                                         <button type="submit" name="delete" class="btn btn-danger">Delete</button>
                                     </form>
                                 </li>
