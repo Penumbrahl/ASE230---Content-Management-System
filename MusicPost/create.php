@@ -16,7 +16,7 @@ if(!isset($_SESSION['email'])){
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // File path for the JSON file
-    $file = "posts.json";
+    $file = "../posts.json";
     
 
     // Initialize an empty array for existing data
@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <input type="text" class="form-control" name="image" required><br />
                                     <label for="content" class="form-label">Content:</label>
                                     <input type="text" class="form-control" name="content" required><br />
-
+                                    <input type="submit" value="Submit">
 
 
 
