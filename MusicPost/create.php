@@ -11,6 +11,65 @@ if(!isset($_SESSION['email'])){
     append new entry onto end of array
     overwrite file with whole new array
     */
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // File path for the JSON file
+    $file = "posts.json";
+    
+
+    // Initialize an empty array for existing data
+    $existingData = [];
+
+    // Check if the file exists and is readable
+    if (file_exists($file) && filesize($file) > 0) {
+        // Read the existing JSON file
+        $json = file_get_contents($file);
+        // Decode the JSON data into an associative array
+        $existingData = json_decode($json, true);
+        
+        // Handle case where json_decode fails
+        if ($existingData === null) {
+            $existingData = [];
+        }
+    }
+
+    // Get the posted data
+    $author = $_POST['author'] ?? '';
+    $genre = $_POST['genre'] ?? '';
+    $content = $_POST['content'] ?? '';
+    $summary = $_POST['summary'] ?? '';
+    $date = $_POST['date'] ?? '';
+    $title = $_POST['title'] ?? '';
+    $image = $_POST['image'] ?? '';
+
+    // Create an associative array with the new data
+    $newData = array(
+        "author" => $author,
+        "genre" => $genre,
+        "content" => $content,
+        "summary" => $summary,
+        "date" => $date,
+        "title" => $title,
+        "image" => $image,
+        "user_id" => $_SESSION["user_id"]
+
+    );
+
+    // Append the new data to the existing data array
+    array_push($existingData, $newData);
+
+    // Convert the updated array back to JSON
+    $jsonData = json_encode($existingData, JSON_PRETTY_PRINT);
+
+    // Save the updated JSON data back to the file
+    file_put_contents($file, $jsonData);
+
+    echo "Form data appended successfully.";
+} else {
+    echo "No data submitted.";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,6 +127,8 @@ if(!isset($_SESSION['email'])){
                                     <input type="text" class="form-control" name="title" required><br />
                                     <label for="title" class="form-label">Summary:</label>
                                     <input type="text" class="form-control" name="summary" required><br />
+                                    <label for="content" class="form-label">Author:</label>
+                                    <input type="text" class="form-control" name="author" required><br />
                                     <label for="title" class="form-label">Date:</label>
                                     <input type="text" class="form-control" name="date" required><br />
                                     <label for="genre" class="form-label">Genre:</label>
@@ -76,7 +137,6 @@ if(!isset($_SESSION['email'])){
                                     <input type="text" class="form-control" name="image" required><br />
                                     <label for="content" class="form-label">Content:</label>
                                     <input type="text" class="form-control" name="content" required><br />
-                                    
 
 
 
