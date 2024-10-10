@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "date" => $date,
         "title" => $title,
         "image" => $image,
-        "user_id" => $_SESSION["user_id"]
+        "user_id" => $_SESSION['user_id']
 
     );
 
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Save the updated JSON data back to the file
     file_put_contents($file, $jsonData);
 
-    echo "Form data appended successfully.";
+    echo "Post Created!";
 } else {
     echo "No data submitted.";
 }
@@ -92,9 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="create.php">Create</a></li>
-                        <li class="nav-item"><a class="nav-link" href="edit.php">Edit</a></li>
-                        <li class="nav-item"><a class="nav-link" href="delete.php">Delete</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="../signout.php">Sign Out</a></li>
                     </ul>
                 </div>
@@ -105,13 +103,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="container">
                 <div class="text-center my-5">
                     <h1 class="fw-bolder">Welcome to GrooveNest!</h1>
-                    <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+                    <p class="lead mb-0">Create your post here!</p>
                 </div>
             </div>
         </header>
         <!-- Page content-->
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <!-- Blog entries-->
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
@@ -145,30 +143,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </form>
                         </div>
 
-                    </div>
-                </div>
-                <!-- Side widgets-->
-                <div class="col-lg-4">
-                    <!-- Search widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Comments</div>
-                        <div class="card-body">
-                            <div class="input-group">
-                            <form method="POST">
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Comments:#Logic not Setup</label>
-                                    <input type="text" class="form-control" name="comment">
-                                </div>
-                                    <button class="btn btn-primary" id="button-search" type="button">Post</button>
-                                </div>
-                            </form>
-                            <br />
-                        </div>
-                    </div>
-                    <!-- Side widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
                     </div>
                 </div>
             </div>

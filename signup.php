@@ -56,11 +56,11 @@ if (count($_POST) > 0) {
                 <div class="card mt-5">
                     <div class="card-body">
                         <h3 class="card-title text-center">Sign Up</h3>
-                        <?php if (strlen($error) > 0): ?>
+                        <?php if (strlen($error) > 0){ ?>
                             <div class="alert alert-danger" role="alert">
                                 <?= $error; ?>
                             </div>
-                        <?php endif; ?>
+                        <?php } ?>
                         <form method="POST">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
