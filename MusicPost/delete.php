@@ -45,20 +45,15 @@ $blogs = $php_array;
                     <?php if (empty($blogs)){?>
                         <div class="alert alert-warning">No posts available to delete.</div>
                     <?php }else{ ?>
-                        <ul class="list-group">
-                            <?php foreach ($blogs as $index => $blog){ ?>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span>
-                                        <strong><?= $blog['title'] ?></strong> by <?= $blog['author'] ?> (<?= $blog['date'] ?>)
-                                    </span>
-                                    <form method="POST" style="display:inline;">
-                                        <input type="hidden" name="user_id" value="<?= $_SESSION['user_id'] ?>">
-                                        <button type="submit" name="delete" class="btn btn-danger">Delete</button>
-                                    </form>
-                                </li>
+                        <div class="card mb-4">
+                        <div class="card-body">
+                            <h1 class="card-title"><?=$blogs[$i]['title']?></h1>
+                            <h5 class="card-subtitle text-muted"><?='by: '.$blogs[$i]['author']?></h5>
+                            <p class="small text-muted"><?='Posted on: '.$blogs[$i]['date']?></p>
+                            <p class="card-text"><?=$blogs[$i]['content']?></p>
+                            <button type="submit" name="delete" class="btn btn-danger">Delete</button><br />
                             <?php } ?>
                         </ul>
-                    <?php } ?>
                     <br />
                     <button type="button" class="btn btn-secondary">
                         <a style="text-decoration: none; color: white;" href="index.php">Return To Home</a>
