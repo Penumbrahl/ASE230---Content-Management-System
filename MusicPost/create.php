@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="text-center my-5">
                     <h1 class="fw-bolder">Welcome to GrooveNest!</h1>
                     <p class="lead mb-0">Create your post here!</p>
-                    <p>Today's Date: <?php echo date('d-m-Y'); ?></p>
+                    <p>Today's Date: <?php echo date('m-d-Y'); ?></p>
                 </div>
             </div>
         </header>
