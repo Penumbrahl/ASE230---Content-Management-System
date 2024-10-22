@@ -1,5 +1,6 @@
 <?php
- session_start();
+session_start();
+
 if (isset($_SESSION['email'])) {
      header('location: index.php');
      die();
@@ -36,6 +37,17 @@ if (isset($_SESSION['email'])) {
          $error = 'Your credentials are wrong';
      }
  };
+
+ /*require_once('Auth.php');
+
+ $auth = new Auth();
+ $auth->login();
+
+ $error = $auth->getError();
+
+ if(!empty($error)){
+    echo "<p style='color:red;'>$error</p>";
+ }*/ // This does not work, I tried. Currently in progress
 ?>
 
 <!DOCTYPE html>

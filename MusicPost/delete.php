@@ -4,12 +4,18 @@ if(!isset($_SESSION['email'])){
     echo '<h2>You are not signed in. Click here to <a href="../signin.php" >Sign In</a></h2>';
     die();
 }
-
+if(!isset($_GET['index'])){
+    echo '<h2>How the hell did you get here? Get back to home you goober! <a href="index.php" >Home</a></h2>';
+    die();
+}
 $i = $_GET['index'];
 $string = file_get_contents('../posts.json');
 $php_array = json_decode($string, true);
 $blogs = $php_array;
-
+if($blogs[$i]['user_id'] != $_SESSION['user_id']){
+    echo '<h2>This is not your post. Click here to return to <a href="index.php" >Home</a></h2>';
+    die();
+}
 
 if (isset($_POST['delete'])) {
 
