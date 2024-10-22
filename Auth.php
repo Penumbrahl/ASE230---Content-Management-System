@@ -4,8 +4,22 @@ session_start();
 class Auth {
     private $error = '';
 
+    /*public function isLogged(){
+        if (isset($_SESSION['email'])) {
+            header('Location: MusicPost/index.php');
+            die();
+        }
+    }*/
+
+    /*public function notLogged(){
+        if(!isset($_SESSION['email'])){
+            echo '<h2>You are not signed in. Click here to <a href="../signin.php" >Sign In</a></h2>';
+             die();
+        }
+    }*/
     // Function to handle the login process
     public function login() {
+        
         if (isset($_SESSION['email'])) {
             header('Location: MusicPost/index.php');
             die();
@@ -49,6 +63,11 @@ class Auth {
                 }
             }
         }
+    }
+
+    public function signout() {
+        session_destroy();
+        echo "<h2>You have successfully signed out. Click here to return to the <a href='index.php'>HomePage</a></h2>";
     }
 
     // Validate signup inputs

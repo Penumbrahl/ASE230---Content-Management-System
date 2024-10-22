@@ -1,40 +1,13 @@
 <?php
-// SIGNUP
-session_start();
-$error = '';
-// LOGIC/CONTROLLER
-if (count($_POST) > 0) {
-    if (!isset($_POST['email'][0])) $error = 'You must enter your email';
-    if (!isset($_POST['password'][0])) $error = 'You must enter your password';
-    if (!isset($_POST['password_confirm'][0])) $error = 'You must confirm your password';
+require_once('Auth.php');
 
-    // Correctness
-    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $error = 'You must enter a valid email';
-    if (strlen($_POST['password']) < 8 || strlen($_POST['password']) > 16) $error = 'Password must be between 8 and 16 characters';
-    if ($_POST['password'] != $_POST['password_confirm']) $error = 'Passwords must match';
+$auth = new Auth();
+$auth->signup();
 
-    if (strlen($error) == 0) {
-        $fp = fopen('users.csv.php', 'r');
-        while (!feof($fp)) {
-            $line = fgets($fp);
-            $line = explode(';', $line);
-            if (count($line) == 2 && $_POST['email'] == $line[0]) {
-                $error = 'The email is already registered';
-                break;
-            }
-        }
-        fclose($fp);
-        if (strlen($error) == 0) {
-            // Open CSV file in append mode
-            $fp = fopen('users.csv.php', 'a+');
-            // Write new credentials
-            fputs($fp, $_POST['email'] . ';' . password_hash($_POST['password'], PASSWORD_DEFAULT) . PHP_EOL);
-            // Close the file
-            fclose($fp);
-            header('Location: signin.php');
-            die();
-        }
-    }
+$error = $auth->getError();
+
+if(!empty($error)){
+   echo "<p style='color:red;'>$error</p>";
 }
 
 // VIEW
