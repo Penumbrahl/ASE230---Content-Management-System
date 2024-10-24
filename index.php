@@ -1,9 +1,9 @@
 <?php
-session_start();
-if (isset($_SESSION['email'])) {
-    header('location: MusicPost/index.php');
-    die();
-};
+require_once('functions.php');
+
+$auth = new Auth();
+
+$auth->redirectIfAuthenticated('MusicPost/index.php');
 
 
     $string = file_get_contents('posts.json');
