@@ -1,9 +1,9 @@
 <?php
-session_start();
-if(!isset($_SESSION['email'])){
-    echo '<h2>You are not signed in. Click here to <a href="../signin.php" >Sign In</a></h2>';
-    die();
-}
+require_once('../functions.php');
+
+$auth = new Auth;
+
+$auth->redirectIfNotAuthenticated('../signin.php');
 
 if(!isset($_GET['index'])){
     echo '<h2>How the hell did you get here? Get back to home you goober! <a href="index.php" >Home</a></h2>';

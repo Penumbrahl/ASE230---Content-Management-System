@@ -1,7 +1,8 @@
 <?php
-require_once('Auth.php');
+require_once('functions.php');
 
 $auth = new Auth();
+
 $auth->signup();
 
 $error = $auth->getError();

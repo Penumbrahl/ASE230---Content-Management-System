@@ -4,26 +4,24 @@ session_start();
 class Auth {
     private $error = '';
 
-    /*public function isLogged(){
+    public function redirectIfAuthenticated($redirectTo = 'MusicPost/index.php') {
         if (isset($_SESSION['email'])) {
-            header('Location: MusicPost/index.php');
-            die();
+            header('Location: ' . $redirectTo);
+            exit();
         }
-    }*/
+    }
+    
+    public function redirectIfNotAuthenticated($redirectTo = 'signin.php') {
+        if (!isset($_SESSION['email'])) {
+            header('Location: ' . $redirectTo);
+            exit();
+        }
+    }
 
-    /*public function notLogged(){
-        if(!isset($_SESSION['email'])){
-            echo '<h2>You are not signed in. Click here to <a href="../signin.php" >Sign In</a></h2>';
-             die();
-        }
-    }*/
     // Function to handle the login process
     public function login() {
         
-        if (isset($_SESSION['email'])) {
-            header('Location: MusicPost/index.php');
-            die();
-        }
+        $this->redirectIfAuthenticated();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'] ?? '';
